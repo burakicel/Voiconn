@@ -1,5 +1,15 @@
 class Owner
 	def name
-		name = 'Foobar Kadigan'
+		name = 'Burak Icel'
 	end
+
+	def message
+		message = 'Welcome to the Voiconn!'
+	end
+
+	def description
+		description = 'Voiconn is a stock trading simulation that will train young investors.'
+	end
+
+
 end
