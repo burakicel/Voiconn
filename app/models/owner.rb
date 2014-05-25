@@ -8,7 +8,7 @@ class Owner
 	end
 
 	def description
-		description = 'Voiconn is a stock trading simulation that will train young investors.'
+		description = 'Voiconn is a stock trading simulation that will train new investors.'
 	end
 
 
