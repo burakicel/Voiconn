@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 	def new
 		@owner = Owner.new 
-		render 'welcome/index'
+		render 'welcome/new'
 	end
 end
