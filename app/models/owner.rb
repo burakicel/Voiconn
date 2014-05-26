@@ -1,3 +1,4 @@
+require 'pg'
 class Owner
 	def name
 		name = 'Burak Icel'
