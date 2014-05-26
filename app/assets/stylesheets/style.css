@@ -1,14 +1,64 @@
+/*-----------------------------------------------------------------------------------*/
+/* 1. GLOBAL STYLES
+/*-----------------------------------------------------------------------------------*/
+
 body {
-    font-family: 'Open Sans',sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
+
+a {color:#000;}
+a:hover {color:#333333;}
+a:link,a:visited,a:active {outline:0;}
+
+p {
+	font-size: 13px;
+	line-height: 25px;
+	font-weight:400;
+	color:#666;
+}
+
+.center{text-align:center;}
+.no-padding {padding:0px;}
+.space10 {margin-bottom:10px;}
+.space15 {margin-bottom:15px;}
+.space20 {margin-bottom:20px;}
+.space25 {margin-bottom:25px;}
+.space30 {margin-bottom:30px;}
+.space35 {margin-bottom:35px;}
+.space40 {margin-bottom:40px;}
+.space50 {margin-bottom:50px;}
+.space60 {margin-bottom:60px;}
+.space70 {margin-bottom:70px;}
+.space80 {margin-bottom:80px;}
+.space90 {margin-bottom:90px;}
+
+/*-----------------------------------------------------------------------------------*/
+/* 2. HEADER STYLES
+/*-----------------------------------------------------------------------------------*/
 
 .header {
-    background: none repeat scroll 0 0 #212121;
+	background:#212121;
 }
 
+/* 2a. Logo
+===================== */
+
 .logo h1 {
-    font-size: 25px;
+	font-size:25px;
+	margin:0px;
+	padding:18px 0;
 }
+
+.logo h1 a {
+	color:#fff;
+}
+
+.logo h1 a span {
+	color:#e02222;
+}
+
+/* 2b. Navmenu
+===================== */
 
 .top-nav {
 	display:table;
@@ -82,3 +132,9 @@ body {
 	color:#fff;
 	font-size:12px;
 }
+
+.top-tweet:hover {background:#3fbcef;}
+.top-fb:hover {background:#314396;}
+.top-gplus:hover {background:#314396;}
+.top-dribble:hover {background:#ed6c9e;}
+.top-skype:hover {background:#00a8ec;}
