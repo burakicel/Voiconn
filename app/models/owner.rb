@@ -1,5 +1,3 @@
-require 'pq'
-
 class Owner
 	def name
 		name = 'Burak Icel'
