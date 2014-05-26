@@ -1,0 +1,12 @@
+.name {
+	float: left;
+    min-height: 1px;
+    padding: 0 15px;
+    position: relative;
+    direction: ltr;
+    font-size: 14px;
+    margin: 0;
+}
+.top-bar .name h1 {
+	font-size: 25px;
+}
