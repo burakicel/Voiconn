@@ -11,7 +11,7 @@ class Owner
 	def description
 		description = 'Voiconn is a stock trading simulation that will train new investors.'
 		conn = PGconn.connect("ec2-54-225-239-184.compute-1.amazonaws.com", 5432, '', '', "de6mutapp7fbf", "wbqmgeaxrzvyzr", "7kZ0Wtu6FyFjgHy7MEG4k2y9Ho")
-		res  = conn.exec('SELECT last_name, LENGTH(last_name) FROM employees ORDER BY LENGTH(last_name)')
+		res  = conn.exec('SELECT last_name FROM employees')
 
 		hey = res[0]
 	end
