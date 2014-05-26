@@ -11,6 +11,74 @@ body {
 }
 
 .top-nav {
-    display: table;
-    float: right;
+	display:table;
+	float:right;
+}
+
+.top-nav li {
+	float:left;
+	margin:20px 15px 5px;
+}
+
+.top-nav li a {
+	color:#fff;
+}
+
+.select-menu {
+	display: none;
+	background: none;
+	padding: none;
+	border:none;
+}
+
+@media (max-width: 767px) {
+
+.top-nav { display: none;margin:0;}
+
+.select-menu {
+	display: block;
+	background: #000;
+	width: 85%;
+	padding: 5px;
+	font-size: 12px;
+	border: 1px solid #252525;
+	height: 34px;
+	margin:10px auto 20px ;
+	color:#fff !important;
+	font-family:Open Sans,Arial;
+}
+}
+
+/* 2c. Social icons
+===================== */
+
+.top-social {
+	display:table;
+	float:right;
+	margin-left:10px;
+}
+
+.top-social li {
+	color:#000;
+	float:left;
+	margin-left:5px;
+	margin-top:22px;
+	background:#444;
+	width:22px;
+	height:22px;
+	border-radius:50%;
+	text-align:center;
+	overflow:hidden;
+	position: relative;
+	line-height: 21px;
+}
+
+.top-social li a{
+	color:#000;
+	font-size:12px;
+}
+
+.top-social li:hover a{
+	color:#fff;
+	font-size:12px;
 }
