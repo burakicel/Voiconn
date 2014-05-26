@@ -9,7 +9,7 @@ class Owner
 	end
 
 	def description
-		conn = PGconn.open(:dbname => 'yellow')
+		conn = PGconn.open(:dbname => 'de6mutapp7fbf')
 		description = 'Voiconn is a stock trading simulation that will train new investors.'
 	end
 
