@@ -9,7 +9,7 @@ class Owner
 	end
 
 	def description
-		conn = PGconn.open(:dbname => 'de6mutapp7fbf')
+		conn = PGconn.connect("ec2-54-225-239-184.compute-1.amazonaws.com", 5432, '', '', "de6mutapp7fbf", "wbqmgeaxrzvyzr", "7kZ0Wtu6FyFjgHy7MEG4k2y9Ho")
 		description = 'Voiconn is a stock trading simulation that will train new investors.'
 	end
 
