@@ -4,3 +4,8 @@
   The time is now: <%= Time.now %>
 </p>
 <h4><%= @owner.companies %></h4>
+<ul>
+  <% for @item in @owner.companies %>
+    <li><%= @item %></li>
+  <% end %>
+</ul>
