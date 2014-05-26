@@ -5,3 +5,7 @@ body {
 .header {
     background: none repeat scroll 0 0 #212121;
 }
+
+.logo h1 {
+    font-size: 25px;
+}
