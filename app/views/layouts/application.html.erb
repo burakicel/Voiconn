@@ -7,21 +7,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="top-bar">
-	<div class="row">
-	<div class="large-12 columns">
 
-		<ul class="title-area">
-		<li class="name">
-			<h1>
-				<a href="/">Voiconns</a>
-			</h1>
-		</li>
-	</ul>
+<div id="wrap">
+	<div id="banner-top" class="jumbotron" style="position: relative; z-index: 0; background: none repeat scroll 0% 0% transparent;">
+		<div id="navbar-wrapper" class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand">
+					<%= image_tag("new_logo.png", :alt => "Logo") %>
+				</div>
+			</div>
+			<a class="demandBtn btn btn-large">Add yourself to the mailing list</a>
+			<div class="beta"><h3>Beta Mode</h3></div>
+		</div>
+
+		<div class="container"> </div>
+
+		<div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 100%; width: 100%; z-index: -999998; position: absolute;">
+			<%= image_tag("back.png", :class => "background", :style =>"position: absolute; margin: 0px; padding: 0px; border: medium none; width: 100%; height: 100%; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -10%;") %>
+
+		</div>
+
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div id="crafted-by-tinker" class="row">
+				<div class="col-md-10 col-md-offset-1">
+				<h2>—  Crafted by Burak Icel  —</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="push">
 		
 	</div>
-	</div>
-</nav>
+</div>
 
 <%= yield %>
 

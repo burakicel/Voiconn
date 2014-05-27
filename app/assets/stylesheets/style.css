@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100);
+
 .name {
 	float: left;
     min-height: 1px;
@@ -9,4 +11,85 @@
 }
 .top-bar .name h1 {
 	font-size: 25px;
+}
+
+#navbar-wrapper .navbar-brand img {
+    height: 128px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+#banner-top {
+    height: 545px;
+    max-height: none;
+    padding: 0;
+    text-align: center;
+    background-color: #000000 !important;
+}
+
+#navbar-wrapper {
+    height: 150px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+.container {
+    overflow: hidden;
+}
+
+#navbar-wrapper .navbar-brand {
+    display: block;
+    float: none;
+    margin-top: 180px;
+    position: static;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.jumbotron{
+	font-size: 21px;
+    font-weight: 200;
+    line-height: 2.14286;
+    margin-bottom: 30px;
+}
+
+#navbar-wrapper .navbar-header {
+    position: relative;
+    width: 100%;
+}
+
+.beta {
+	color: #FFFFFF;
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+}
+
+.btn:hover, .btn {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #88C333;
+    border-color: -moz-use-text-color -moz-use-text-color #78AA30;
+    border-image: none;
+    border-radius: 3px;
+    border-style: none none solid;
+    border-width: medium medium 3px;
+    box-shadow: none;
+    color: #FFFFFF;
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 11px 20px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+    margin-top: 160px;
 }
