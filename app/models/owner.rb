@@ -20,7 +20,7 @@ class Owner
 		ary = Array.new
 		counter = 0
 
-		while counter < 6  do
+		while counter < 7  do
    			ary.push(res[counter]["last_name"])
    			counter += 1
 		end

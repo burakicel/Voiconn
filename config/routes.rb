@@ -1,5 +1,9 @@
 RubyRailsSample::Application.routes.draw do
   root 'welcome#new'
+  resource :welcome
+
+  match '/welcome',      to: 'welcome#new',           via: 'get'
+  match '/welcome',      to: 'welcome#deliver',        via: 'post'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -91,5 +91,21 @@ img {
     position: relative;
     text-decoration: none;
     text-shadow: none;
-    margin-top: 160px;
+    margin-top: 15px;
+}
+
+.col-sm-10 {
+	text-align: center;
+}
+.form-control {
+	text-align: center;
+	width: 300px;
+	margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 80px;
+}
+#wrap{
+	text-align: center;
 }

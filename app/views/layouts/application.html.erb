@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RubyRailsSample</title>
+  <title>Voiconn</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -16,11 +16,24 @@
 					<%= image_tag("new_logo.png", :alt => "Logo") %>
 				</div>
 			</div>
-			<a class="demandBtn btn btn-large">Add yourself to the mailing list</a>
+
+			<%=form_for :welcome, url: url_for( :controller => :welcome, :action => :deliver ) do |f| %>
+			<div class="field">
+				<%= f.label :subject %><br />
+				<%= f.text_field :subject, :class=>"form-control",:placeholder=>"Email", :type=>"email"%>
+			</div> 
+
+			<div class="actions">
+				<%= f.submit "Let me know when it's ready!", :class=>"demandBtn btn btn-large"%>
+			</div>
+			<% end %>
+
+
 			<div class="beta"><h3>Beta Mode</h3></div>
 		</div>
 
 		<div class="container"> </div>
+
 
 		<div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 100%; width: 100%; z-index: -999998; position: absolute;">
 			<%= image_tag("back.png", :class => "background", :style =>"position: absolute; margin: 0px; padding: 0px; border: medium none; width: 100%; height: 100%; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -10%;") %>
@@ -33,7 +46,7 @@
 		<div class="row">
 			<div id="crafted-by-tinker" class="row">
 				<div class="col-md-10 col-md-offset-1">
-				<h2>—  Crafted by Burak Icel  —</h2>
+				<h3>—  A Project By Burak Icel  —</h3>
 				</div>
 			</div>
 		</div>
@@ -41,9 +54,8 @@
 	<div id="push">
 		
 	</div>
-</div>
-
 <%= yield %>
+</div>
 
 </body>
 </html>
