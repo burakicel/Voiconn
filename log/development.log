@@ -18192,3 +18192,321 @@ Started GET "/assets/new_logo.png" for 127.0.0.1 at 2014-05-30 11:01:22 -0400
 
 
 Started GET "/assets/back.png" for 127.0.0.1 at 2014-05-30 11:01:22 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+Processing by WelcomeController#new as HTML
+  Rendered welcome/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/new_logo.png" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/assets/back.png" for 127.0.0.1 at 2014-05-30 11:12:46 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+Processing by WelcomeController#new as HTML
+  Rendered welcome/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/new_logo.png" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started GET "/assets/back.png" for 127.0.0.1 at 2014-05-30 11:19:20 -0400
+
+
+Started POST "/welcome" for 127.0.0.1 at 2014-05-30 11:19:25 -0400
+Processing by WelcomesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZWRKwhW4VETkz41wZJfN7RrjbnT2e0xw8l5zOgTMEwc=", "welcome"=>{"subject"=>"burakicel@hotmail.com"}, "commit"=>"Let me know when it's ready!"}
+  Rendered welcomes/create.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2210ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/new_logo.png" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started GET "/assets/back.png" for 127.0.0.1 at 2014-05-30 11:19:27 -0400
+
+
+Started POST "/welcome" for 127.0.0.1 at 2014-05-30 11:20:02 -0400
+Processing by WelcomesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZWRKwhW4VETkz41wZJfN7RrjbnT2e0xw8l5zOgTMEwc=", "welcome"=>{"subject"=>"hello@hotmail.com"}, "commit"=>"Let me know when it's ready!"}
+  Rendered welcomes/create.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1944ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/new_logo.png" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/assets/back.png" for 127.0.0.1 at 2014-05-30 11:20:04 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-30 11:39:33 -0400
+Processing by WelcomeController#new as HTML
+  Rendered welcome/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2014-05-30 11:39:33 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-05-30 11:39:33 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-05-30 11:39:33 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-30 11:39:34 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-30 11:39:34 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-30 11:39:34 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-30 11:39:34 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-05-30 11:39:34 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-05-30 11:39:34 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-05-30 11:39:34 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-30 11:39:34 -0400
+
+
+Started GET "/assets/new_logo.png" for 127.0.0.1 at 2014-05-30 11:39:34 -0400
+
+
+Started GET "/assets/back.png" for 127.0.0.1 at 2014-05-30 11:39:34 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+Processing by WelcomeController#new as HTML
+  Rendered welcome/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/new_logo.png" for 127.0.0.1 at 2014-05-30 12:08:07 -0400
+
+
+Started GET "/assets/back.png" for 127.0.0.1 at 2014-05-30 12:08:08 -0400
+
+
+Started POST "/welcome" for 127.0.0.1 at 2014-05-30 12:08:32 -0400
+Processing by WelcomesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZWRKwhW4VETkz41wZJfN7RrjbnT2e0xw8l5zOgTMEwc=", "welcome"=>{"subject"=>"random@random.com"}, "commit"=>"Let me know when it's ready!"}
+  Rendered welcomes/create.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2200ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/new_logo.png" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
+
+
+Started GET "/assets/back.png" for 127.0.0.1 at 2014-05-30 12:08:34 -0400
