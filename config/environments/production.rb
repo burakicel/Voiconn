@@ -72,6 +72,20 @@ RubyRailsSample::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+    # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => 'smtp.gmail.com',
+    :port => 587,
+    :authentication => :plain,
+    :domain => 'voiconn.com',
+    :user_name => 'burakicel96@gmail.com',
+    :password => 'samanyesene'
+
+  }
+
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 

@@ -1,3 +1,41 @@
+<div id="banner-top" class="jumbotron" style="position: relative; z-index: 0; background: none repeat scroll 0% 0% transparent;">
+		<div id="navbar-wrapper" class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand">
+					<%= image_tag("new_logo.png", :alt => "Logo") %>
+				</div>
+			</div>
+
+
+			<%= button_to "Register", {:controller=> :register , :action=>:createUser},:class=> "registersBtn btn btn-large" %>
+			<%= button_to "Login", {:controller=> :login , :action=>:loginUser},:class=> "loginBtn btn btn-large" %>
+
+
+			<div class="beta"><h3>Beta Mode</h3></div>
+		</div>
+
+		<div class="container"> </div>
+
+
+		<div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 100%; width: 100%; z-index: -999998; position: absolute;">
+			<%= image_tag("back.png", :class => "background", :style =>"position: absolute; margin: 0px; padding: 0px; border: medium none; width: 100%; height: 100%; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -10%;") %>
+
+		</div>
+
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div id="crafted-by-tinker" class="row">
+				<div class="col-md-10 col-md-offset-1">
+				<h3>—  A Project By Burak Icel  —</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="push">
+		
+	</div>
 <h2><%= @owner.message %></h2>
 <h4><%= @owner.description %></h4>
 <p>

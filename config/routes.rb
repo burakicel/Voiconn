@@ -1,9 +1,22 @@
 RubyRailsSample::Application.routes.draw do
-  root 'welcome#new'
+  get "notifications/index"
+  get "notifications/create"
+  root 'welcome#new'    
   resource :welcome
-
+  resource :register
+  resource :user
+  resource :login
+  resource :activate
   match '/welcome',      to: 'welcome#new',           via: 'get'
   match '/welcome',      to: 'welcome#deliver',        via: 'post'
+  match '/register',      to: 'register#new',           via: 'get'
+  match '/register',      to: 'register#createUser',        via: 'post'
+  match '/activate',      to: 'activate#new',        via: 'post'
+  match '/login',      to: 'login#new',           via: 'get'
+  match '/login',      to: 'login#loginUser',        via: 'post'
+  match '/login',      to: 'login#deliver',        via: 'post'
+  match '/user',      to: 'user#new',           via: 'get'
+  match '/user',      to: 'user#deliver',        via: 'post'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
