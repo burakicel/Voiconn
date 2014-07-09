@@ -4,20 +4,27 @@ class ActivatesController < ApplicationController
         create
     end
 
-    def new(params)
-        @activate = Activate.haber(params)
+    def new
+        @activate = Activate.new
+    end
+
+    def deliver(params)
+        activate.haber(params)
     end
 
     def index
         @sda = "feaas"
     end
 
-    def create(params)
-        @com = Activate.bro(params)
-    end
-
-    def haber(params)
-        @com = Activate.bro(params)
+    def create
+        if params[:login] == nil
+            @username = params[:activate][:username]
+            @password = params[:activate][:password]
+            @status = Activate.status(@username,@password,params[:activate][:verification])
+        else
+            @username = Activate.username(params)
+            @password = params[:login][:password]
+        end
     end
 
     def edit

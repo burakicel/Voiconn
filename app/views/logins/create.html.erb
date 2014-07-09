@@ -7,7 +7,7 @@
 	<div class="hero-unit">
 		<%= @verification -%>
 		<h1>Login</h1>
-		<%=form_for :login, url: url_for( :controller => :login, :action => :deliver ) do |f| %>
+		<%=form_for :login, url: url_for( :controller => :login, :action => :deliver, :method=>:post ) do |f| %>
 				<%= f.label "Username : " %>
 				<%= f.text_field :username, :class=>"register-control",:placeholder=>"Username", :type=>"text"%>
 				</br>

@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 					if password1 == password2
 
 						if password1.length > 5
-						conn = PGconn.connect("ec2-54-225-239-184.compute-1.amazonaws.com", 5432, '', '', "de6mutapp7fbf", "wbqmgeaxrzvyzr", "7kZ0Wtu6FyFjgHy7MEG4k2y9Ho")
+						conn = Connection.Connect()
 						command = "SELECT * FROM users WHERE username='"+username+"';"
 						command2 = "SELECT * FROM users WHERE email='"+email+"';"
 						res  = conn.exec(command)

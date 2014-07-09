@@ -13,7 +13,7 @@ class Owner
 	end
 
 	def companies
-		conn = PGconn.connect("ec2-54-225-239-184.compute-1.amazonaws.com", 5432, '', '', "de6mutapp7fbf", "wbqmgeaxrzvyzr", "7kZ0Wtu6FyFjgHy7MEG4k2y9Ho")
+		conn = Connection.Connect()
 		res  = conn.exec('SELECT last_name FROM employees')
 		hey = conn.close()
 		

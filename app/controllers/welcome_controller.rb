@@ -5,14 +5,5 @@ class WelcomeController < ApplicationController
 		render 'welcome/new'
 	end
 
-	def deliver
-		das = [:welcome][:subject]
-
-
-  	end
-
-
-
-
 end
 

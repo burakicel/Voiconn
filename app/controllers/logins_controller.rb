@@ -1,7 +1,7 @@
 class LoginsController < ApplicationController
 
     def show
-        @login=Login.new
+        render template: "logins/create"
     end
 
     def new
@@ -15,10 +15,11 @@ class LoginsController < ApplicationController
     def create
         @verification = Login.verification(params)
         if (@verification == "You need to activate your account!")
-            @activate = Activate.new(activate_params)
-            if @activate.save
-                redirect_to params[:redirect_to] || "/activate"
-            end
+            redirect_to :controller => "activate", :action => "create", :params => params
+        elsif (@verification == "Success")
+            session[:tmp_params] = params
+            redirect_to gamemain_path
+            #redirect_to :controller => "gamemain", :action => "create", :params => params
         end
     end
 
