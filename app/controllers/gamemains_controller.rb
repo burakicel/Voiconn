@@ -14,14 +14,21 @@ class GamemainsController < ApplicationController
 
         #If there are cookies avaible or paramaters passed
         if checker == false
+
+            #For User Profile
             @username = (params['login']['username']).upcase
             @update = Gamemain.update()
             @money = Gamemain.Account(params)
+
+            #For Stock Pricing, The stock price is only calculated when it is requested
             @Stocks = Gamemain.Stocks(params)
             @numStocks = @Stocks[1]
             @listStocks = @Stocks[0]
             @stockPrices = Gamemain.stockPrice(@Stocks[0])
             @oldStockPrices = Gamemain.oldStockPrice(@Stocks[0])
+
+            #Stock News
+            #@stockNews = Gamemain.stockNews()
             session[:tmp_params] = nil #clear the parameters
        
         else

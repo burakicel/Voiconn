@@ -260,7 +260,7 @@ h2.bg-success {
 }
 
 .profile {
-    margin-top: 40px;
+    margin-top: 0px;
 }
 
 #page-content-wrapper {
@@ -302,4 +302,19 @@ h1.stockWorth {
     color: #84bf85;
     font-size: 30px;
     margin-top: 10px;
+}
+.dashboard {
+    background-color: #000;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 150px;
+    background-image: url(/assets/dashboard.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dash {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-top: 40px;
 }
