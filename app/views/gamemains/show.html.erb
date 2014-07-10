@@ -57,33 +57,33 @@
 								<%for i in 0..@listStocks.values.length-1%>
 
 								<% if @listStocks.values[i].to_i != 0%>
-									<% difference = @stockPrices[i].values[0].to_f-@oldStockPrices[i].values[0].to_f %>
+									<% difference = @stockPrices[i].to_f-@oldStockPrices[i].to_f %>
 
 									<% if difference < 0 %>
 
 									<tr class="danger">
 										<td><%= @listStocks.keys[i].upcase %></td>
-										<td>$<%= sprintf('%.2f',@stockPrices[i].values[0].to_f) %></td>
-										<td>$<%= sprintf('%.2f',@oldStockPrices[i].values[0].to_f) %></td>
+										<td>$<%= sprintf('%.2f',@stockPrices[i].to_f) %></td>
+										<td>$<%= sprintf('%.2f',@oldStockPrices[i].to_f) %></td>
 										<td>$<%= sprintf('%.2f',difference) %></td>
-										<% totalWorth +=@stockPrices[i].values[0].to_f * @listStocks.values[i].to_f %>
+										<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
 									</tr>
 
 									<% elsif difference > 0 %>
 									<tr class="success">
 										<td><%= @listStocks.keys[i].upcase %></td>
-										<td>$<%= sprintf('%.2f',@stockPrices[i].values[0].to_f) %></td>
-										<td>$<%= sprintf('%.2f',@oldStockPrices[i].values[0].to_f) %></td>
+										<td>$<%= sprintf('%.2f',@stockPrices[i].to_f) %></td>
+										<td>$<%= sprintf('%.2f',@oldStockPrices[i].to_f) %></td>
 										<td>$<%= sprintf('%.2f',difference) %></td>
-										<% totalWorth +=@stockPrices[i].values[0].to_f * @listStocks.values[i].to_f %>
+										<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
 									</tr>
 									<%else%>
 									<tr class="info">
 										<td><%= @listStocks.keys[i].upcase %></td>
-										<td>$<%= sprintf('%.2f',@stockPrices[i].values[0].to_f) %></td>
-										<td>$<%= sprintf('%.2f',@oldStockPrices[i].values[0].to_f) %></td>
+										<td>$<%= sprintf('%.2f',@stockPrices[i].to_f) %></td>
+										<td>$<%= sprintf('%.2f',@oldStockPrices[i].to_f) %></td>
 										<td>$<%= sprintf('%.2f',difference) %></td>
-										<% totalWorth +=@stockPrices[i].values[0].to_f * @listStocks.values[i].to_f %>
+										<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
 									</tr>
 									<%end%>
 								<% end %>
@@ -122,8 +122,8 @@
 										<td><%=counter%></td>
 										<td><%= @listStocks.keys[i].upcase %></td>
 										<td><%= @listStocks.values[i] %></td>
-										<td>$<%= sprintf('%.2f',@stockPrices[i].values[0].to_f * @listStocks.values[i].to_f) %></td>
-										<% totalWorth +=@stockPrices[i].values[0].to_f * @listStocks.values[i].to_f %>
+										<td>$<%= sprintf('%.2f',@stockPrices[i].to_f * @listStocks.values[i].to_f) %></td>
+										<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
 									</tr>
 								<% counter+=1%>
 								<% end %>

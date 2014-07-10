@@ -24,6 +24,9 @@ RubyRailsSample::Application.routes.draw do
   match '/activate',      to: 'activate#verify',           via: 'get'
   match '/activate',      to: 'activate#verify',        via: 'post'
 
+  match '/login',      to: 'login#create',        via: 'get'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

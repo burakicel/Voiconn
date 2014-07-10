@@ -1,20 +1,31 @@
 class GamemainsController < ApplicationController
 
     def show
+
+        checker = false
+
         params = session[:tmp_params]
         if params == nil
-            render template: "logins/create"
+            if eval(cookies[:params].to_s) == nil
+                #render template: "logins/create"
+                checker = true
+            else
+                params = eval(cookies[:params])
+            end
+        end
+        if checker == false
+            @username = (params['login']['username']).upcase
+            @update = Gamemain.update()
+            @money = Gamemain.Account(params)
+            @Stocks = Gamemain.Stocks(params)
+            @numStocks = @Stocks[1]
+            @listStocks = @Stocks[0]
+            @stockPrices = Gamemain.stockPrice(@Stocks[0])
+            @oldStockPrices = Gamemain.oldStockPrice(@Stocks[0])
+            session[:tmp_params] = nil
         else
-        @username = (params[:login][:username]).upcase
-        @update = Gamemain.update()
-        @money = Gamemain.Account(params)
-        @Stocks = Gamemain.Stocks(params)
-        @numStocks = @Stocks[1]
-        @listStocks = @Stocks[0]
-        @stockPrices = Gamemain.stockPrice(@Stocks[0])
-        @oldStockPrices = Gamemain.oldStockPrice(@Stocks[0])
-        session[:tmp_params] = nil
-    end
+            render template: "logins/create"
+        end
     end
 
     def new(params)

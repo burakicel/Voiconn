@@ -18,6 +18,7 @@ class LoginsController < ApplicationController
             redirect_to :controller => "activate", :action => "create", :params => params
         elsif (@verification == "Success")
             session[:tmp_params] = params
+            cookies[:params] = { value: params, expires: 1.hour.from_now }
             redirect_to gamemain_path
             #redirect_to :controller => "gamemain", :action => "create", :params => params
         end
