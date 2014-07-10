@@ -13,11 +13,10 @@ class ActivatesController < ApplicationController
     end
 
     def index
-        @sda = "feaas"
     end
 
     def create
-        if params[:login] == nil
+        if params[:login] == nil #Activates the users account if the correct verification is supplied
             @username = params[:activate][:username]
             @password = params[:activate][:password]
             @status = Activate.status(@username,@password,params[:activate][:verification])
