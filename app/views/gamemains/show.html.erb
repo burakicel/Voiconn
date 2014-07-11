@@ -142,7 +142,29 @@
 							<% end %>
 						</div>
 						<div class="well">
-							<h2 class="username">Stock News</h2>
+							<h2 class="username">Stock News</h2> </br>
+						<div class="panel panel-default">
+						<div class="panel-body">
+						<ul class="demo">
+							<% for i in 0...@stockNews.length %>
+							<% if i != @stockNews.length-1 %>
+							<li class="news-item" style="border-bottom: 1px dotted #555;">
+							<% else %>
+							<li class="news-item">
+							<%end%>
+								<table class="news-table">
+									<tr>
+										<td>
+												<%= image_tag(@stockNews[0][i], :alt => "news", :class=>"newsPic") %>
+												<h2 class="news"> <%=@stockNews[1][i] %></h2>
+										</td>
+									</tr>
+								</table>
+							</li>
+							<% end %>
+						</ul>
+						</div>
+						</div>
 							<%= @stockNews %>
 						</div>
 					</div>

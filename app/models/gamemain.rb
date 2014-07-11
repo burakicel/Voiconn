@@ -2,6 +2,7 @@ class Gamemain < ActiveRecord::Base
 
 	#List of the stocks avaible
 	@@listStocks = ["rsi","eoc","gold","oil"]
+	@@listStocksCap = @@listStocks.map(&:upcase)
 
 	#Returns the Users Balance
 	def self.Account (params)
@@ -122,8 +123,45 @@ class Gamemain < ActiveRecord::Base
 		end
 	end
 
+	#Generate News based on the stock price changes
 	def  self.stockNews ()
 		conn = Connection.Connect()
+		command = "SELECT TIME FROM NEWS WHERE NEWSID=1;"
+		action = conn.exec(command)
+		difference = TimeDifference.between(Time.parse(action.values[0][0]), Time.now).in_minutes
+
+		if difference > 4
+			negativeStockDiff = 0
+			positiveStockDiff = 0
+			negativeStock = ""
+			positiveStock = ""		
+			for i in 0...@@listStocksCap.length
+				command = "SELECT PRICE FROM STOCKS WHERE NAME='"+@@listStocksCap[i].to_s+"';"
+				action = conn.exec(command)
+				prices = action.values[0][0].split('$')
+
+				difference = prices[1].to_f-prices[prices.length-2].to_f
+
+				if difference > positiveStockDiff 
+					positiveStockDiff = difference
+					positiveStock = @@listStocksCap[i].to_s
+				elsif difference < negativeStockDiff
+					negativeStockDiff = difference
+					negativeStock = @@listStocksCap[i].to_s
+				end
+			end
+		end
+
+		images = []
+		titles = []
+
+		for i in 0..1
+			command = "SELECT PICID,STOCKTITLE FROM NEWS WHERE NEWSID="+(i+1).to_s+";"
+			action = conn.exec(command)
+			images[i] = "images-"+(action.values[0][0]).to_s+".jpg"
+			titles[i] = action.values[0][1].to_s
+		end
 		close = conn.close()
+		return [images,titles]
 	end
 end

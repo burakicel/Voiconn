@@ -318,3 +318,35 @@ h1.stockWorth {
     padding-left: 0px;
     margin-top: 40px;
 }
+
+h2.news{
+    margin-top: 30px;
+    padding-top: 0px;
+    font-weight: 100;
+    margin-left: 10px;
+    font-size: 200%;
+}
+
+.glyphicon {
+margin-right: 4px !important; /*override*/
+}
+.pagination .glyphicon {
+margin-right: 0px !important; /*override*/
+}
+.pagination a {
+color: #555;
+}
+
+.newsPic {
+    float: left;
+}
+
+li.news-item {
+    text-align: center;
+}
+
+.news-table {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

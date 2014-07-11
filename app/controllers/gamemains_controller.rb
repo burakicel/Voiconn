@@ -28,7 +28,7 @@ class GamemainsController < ApplicationController
             @oldStockPrices = Gamemain.oldStockPrice(@Stocks[0])
 
             #Stock News
-            #@stockNews = Gamemain.stockNews()
+            @stockNews = Gamemain.stockNews()
             session[:tmp_params] = nil #clear the parameters
        
         else
