@@ -100,7 +100,7 @@ class Gamemain < ActiveRecord::Base
 
 				#Randomly Generates new prices based on the time passed
 				for q in 0...(difference/5).to_i
-					value += rand(-changeLimit...changeLimit2)
+					value += rand(-changeLimit..changeLimit2)
 					priceOutput = "$"+sprintf("%.2f",value).to_s+priceOutput
 				end
 
@@ -129,28 +129,63 @@ class Gamemain < ActiveRecord::Base
 		command = "SELECT TIME FROM NEWS WHERE NEWSID=1;"
 		action = conn.exec(command)
 		difference = TimeDifference.between(Time.parse(action.values[0][0]), Time.now).in_minutes
+		numPics = 7
 
-		if difference > 4
-			negativeStockDiff = 0
-			positiveStockDiff = 0
-			negativeStock = ""
-			positiveStock = ""		
-			for i in 0...@@listStocksCap.length
-				command = "SELECT PRICE FROM STOCKS WHERE NAME='"+@@listStocksCap[i].to_s+"';"
-				action = conn.exec(command)
-				prices = action.values[0][0].split('$')
+		#if difference > 4
+		positiveHeadlines = ["%stock Prices Spike Higher","%stock Stocks Gain Momentum","%stock Shares Up %percentage%","Shares in %stock Jump Over %percentage%"]
+		negativeHeadlines = ["%stock Stocks Falls by %percentage%","%stock Plunges %percentage%"]
+		growthList = Hash.new{|h,k| h[k] = []}
+		differenceList = []
 
-				difference = prices[1].to_f-prices[prices.length-2].to_f
+		for i in 0...@@listStocksCap.length
+			command = "SELECT PRICE FROM STOCKS WHERE NAME='"+@@listStocksCap[i].to_s+"';"
+			action = conn.exec(command)
+			prices = action.values[0][0].split('$')
 
-				if difference > positiveStockDiff 
-					positiveStockDiff = difference
-					positiveStock = @@listStocksCap[i].to_s
-				elsif difference < negativeStockDiff
-					negativeStockDiff = difference
-					negativeStock = @@listStocksCap[i].to_s
-				end
-			end
+			difference = sprintf("%.2f",prices[1].to_f-prices[-2].to_f).to_f
+
+			differenceList[i] = difference
+			growthList[difference][0] = @@listStocksCap[i].to_s
+			growthList[difference][1] = sprintf("%.2f",( ((100/prices[-2].to_f)*difference.to_f).abs ))
 		end
+
+		differenceList = insertionsort(differenceList)
+
+		if differenceList[-1].to_f != 0
+			if differenceList[-1].to_f > 0
+				headline = positiveHeadlines[rand(0...positiveHeadlines.length)].gsub("%stock",growthList[differenceList[-1]][0]).gsub("%percentage",growthList[differenceList[-1]][1])
+			elsif differenceList[-1].to_f < 0
+				headline = negativeHeadlines[rand(0...negativeHeadlines.length)].gsub("%stock",growthList[differenceList[-1]][0]).gsub("%percentage",growthList[differenceList[-1]][1])
+			end
+			if growthList[differenceList[-1]][0] == "OIL"
+				picID = "1"
+			elsif growthList[differenceList[-1]][0] = "GOLD"
+				picID = "0"
+			else
+				picID = rand(2..numPics).to_s
+			end
+			command = "UPDATE NEWS SET STOCKTITLE='"+headline+"',PICID="+picID+" WHERE NEWSID=1;"
+			action = conn.exec(command)
+		end
+
+
+		if differenceList[0].to_f != 0
+			if differenceList[0].to_f > 0
+				headline = positiveHeadlines[rand(0...positiveHeadlines.length)].gsub("%stock",growthList[differenceList[0]][0]).gsub("%percentage",growthList[differenceList[0]][1])
+			elsif differenceList[0].to_f < 0
+				headline = negativeHeadlines[rand(0...negativeHeadlines.length)].gsub("%stock",growthList[differenceList[0]][0]).gsub("%percentage",growthList[differenceList[0]][1])
+			end
+			if growthList[differenceList[0]][0] == "OIL"
+				picID = "1"
+			elsif growthList[differenceList[0]][0] == "GOLD"
+				picID = "0"
+			else
+				picID = rand(2..numPics).to_s
+			end
+			command = "UPDATE NEWS SET STOCKTITLE='"+headline+"',PICID="+picID+" WHERE NEWSID=2;"
+			action = conn.exec(command)
+		end
+		#end
 
 		images = []
 		titles = []
@@ -163,5 +198,18 @@ class Gamemain < ActiveRecord::Base
 		end
 		close = conn.close()
 		return [images,titles]
+	end
+
+	def  self.insertionsort(num)
+		for j in 1...num.length
+			key = num[j]
+			i = j - 1
+			while i >= 0 and num[i] > key
+				num[i+1] = num[i]
+				i = i - 1
+			end
+			num[i+1] = key
+		end	
+		return num
 	end
 end
