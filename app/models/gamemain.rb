@@ -131,7 +131,7 @@ class Gamemain < ActiveRecord::Base
 		difference = TimeDifference.between(Time.parse(action.values[0][0]), Time.now).in_minutes
 		numPics = 7
 
-		#if difference > 4
+		if difference > 30
 		positiveHeadlines = ["%stock Prices Spike Higher","%stock Stocks Gain Momentum","%stock Shares Up %percentage%","Shares in %stock Jump Over %percentage%"]
 		negativeHeadlines = ["%stock Stocks Falls by %percentage%","%stock Plunges %percentage%"]
 		growthList = Hash.new{|h,k| h[k] = []}
@@ -185,7 +185,7 @@ class Gamemain < ActiveRecord::Base
 			command = "UPDATE NEWS SET STOCKTITLE='"+headline+"',PICID="+picID+" WHERE NEWSID=2;"
 			action = conn.exec(command)
 		end
-		#end
+		end
 
 		images = []
 		titles = []
@@ -196,6 +196,10 @@ class Gamemain < ActiveRecord::Base
 			images[i] = "images-"+(action.values[0][0]).to_s+".jpg"
 			titles[i] = action.values[0][1].to_s
 		end
+
+		command = "UPDATE NEWS SET TIME='"+Time.now().to_s+"' WHERE NEWSID=1;"
+		action = conn.exec(command)
+
 		close = conn.close()
 		return [images,titles]
 	end
