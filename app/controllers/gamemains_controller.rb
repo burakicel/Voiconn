@@ -29,6 +29,7 @@ class GamemainsController < ApplicationController
 
             #Stock News
             @stockNews = Gamemain.stockNews()
+
             session[:tmp_params] = nil #clear the parameters
        
         else

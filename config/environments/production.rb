@@ -81,9 +81,8 @@ RubyRailsSample::Application.configure do
     :port => 587,
     :authentication => :plain,
     :domain => 'voiconn.com',
-    :user_name => 'burakicel96@gmail.com',
-    :password => 'samanyesene'
-
+    #:user_name => '', #ERASED FOR PRIVACY
+    #:password => '' #ERASED FOR PRIVACY
   }
 
   # Disable automatic flushing of the log to improve performance.

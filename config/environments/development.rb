@@ -26,9 +26,8 @@ RubyRailsSample::Application.configure do
     :port => 587,
     :authentication => :plain,
     :domain => 'voiconn.com',
-    :user_name => '', #ERASED FOR PRIVACY
-    :password => '' #ERASED FOR PRIVACY
-
+    #:user_name => '', #ERASED FOR PRIVACY
+    #:password => '' #ERASED FOR PRIVACY
   }
 
   # Print deprecation notices to the Rails logger.
