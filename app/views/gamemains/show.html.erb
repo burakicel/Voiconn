@@ -5,169 +5,183 @@
 </div>
 </div>
 
-	<div id="wrapper">
-		<div id="sidebar-wrapper">
-			<ul class="sidebar-nav">
-				<div class="sidebar-brand">
-					Navigation
+<div id="wrapper">
+	<div id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<div class="sidebar-brand">
+				Navigation
+			</div>
+			<li class="links">
+				<a href="#">Dashboard</a>
+			</li>
+			<li class="links">
+				<a href="#">Inventory</a>
+			</li>
+			<li class="links">
+				<a href="#">Buy/Sell Stocks</a>
+			</li>
+			<li class="links">
+				<a href="#">Messages</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="page-content-wrapper">
+		<div class="page-content inset">
+
+			<div class="col-md-12 dash">
+				<div class="well dashboard">
 				</div>
-				<li class="links">
-					<a href="#">Dashboard</a>
-				</li>
-				<li class="links">
-					<a href="#">Inventory</a>
-				</li>
-				<li class="links">
-					<a href="#">Buy/Sell Stocks</a>
-				</li>
-				<li class="links">
-					<a href="#">Messages</a>
-				</li>
-			</ul>
+			</div>
+
+			<div class="row">
+				<div class="col-md-5 profile">
+					<%= @update %>
+					<div class="well">
+						<%= image_tag("profile.png", :alt => "Profile", :class=>"profilePic") %> </br>
+						<h2 class="username"><%= @username %></h2>
+					</br> Account Balance:
+					<h1 class="balance">$<%= @money %></h1>
+				</div>
+
+
+				<div class="well">
+					<h2 class="username">Your Stock Activity</h2>
+					<%if @numStocks == 0 %>
+				</br>
+				No Stocks Exist
+				<%else%>
+			</br> Updated in every 5 minutes
+			<table class="table stock">
+				<thead class="stock"> <tr>
+					<th>Name</th>
+					<th>Value</th>
+					<th>Previous Value</th>
+					<th>Change</th>
+				</tr></thead>
+				<% totalWorth = 0.0 %>
+				<tbody> 
+					<%for i in 0..@listStocks.values.length-1%>
+
+					<% if @listStocks.values[i].to_i != 0%>
+					<% difference = @stockPrices[i].to_f-@oldStockPrices[i].to_f %>
+
+					<% if difference < 0 %>
+
+					<tr class="danger">
+						<td><%= @listStocks.keys[i].upcase %></td>
+						<td>$<%= sprintf('%.2f',@stockPrices[i].to_f) %></td>
+						<td>$<%= sprintf('%.2f',@oldStockPrices[i].to_f) %></td>
+						<td>$<%= sprintf('%.2f',difference) %></td>
+						<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
+					</tr>
+
+					<% elsif difference > 0 %>
+					<tr class="success">
+						<td><%= @listStocks.keys[i].upcase %></td>
+						<td>$<%= sprintf('%.2f',@stockPrices[i].to_f) %></td>
+						<td>$<%= sprintf('%.2f',@oldStockPrices[i].to_f) %></td>
+						<td>$<%= sprintf('%.2f',difference) %></td>
+						<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
+					</tr>
+					<%else%>
+					<tr class="info">
+						<td><%= @listStocks.keys[i].upcase %></td>
+						<td>$<%= sprintf('%.2f',@stockPrices[i].to_f) %></td>
+						<td>$<%= sprintf('%.2f',@oldStockPrices[i].to_f) %></td>
+						<td>$<%= sprintf('%.2f',difference) %></td>
+						<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
+					</tr>
+					<%end%>
+					<% end %>
+					<% end %>
+				</tbody>
+			</table>
+			<% end %>
 		</div>
 
-		<div id="page-content-wrapper">
-			<div class="page-content inset">
-
-				<div class="col-md-12 dash">
-					<div class="well dashboard">
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-5 profile">
-						<%= @update %>
-						<div class="well">
-							<%= image_tag("profile.png", :alt => "Profile", :class=>"profilePic") %> </br>
-							<h2 class="username"><%= @username %></h2>
-							</br> Account Balance:
-							<h1 class="balance">$<%= @money %></h1>
-						</div>
+		<div class="well ad">
+		<h2 class="adtitle">Advertisements</h2></br>
+		<a href="http://www.mb103.com/lnk.asp?o=6801&c=75729&a=114423&s1=voiconn">
+			<IMG SRC="http://www.mb103.com/getimage.asp?a=114423&m=2952&o=6801&i=75729.dat" width=300 height=250 border=0 class="adpic">
+		</a>
+		</div>
 
 
-						<div class="well">
-							<h2 class="username">Your Stock Activity</h2>
-							<%if @numStocks == 0 %>
-								</br>
-								No Stocks Exist
-							<%else%>
-							</br> Updated in every 5 minutes
-							<table class="table stock">
-								<thead class="stock"> <tr>
-									<th>Name</th>
-									<th>Value</th>
-									<th>Previous Value</th>
-									<th>Change</th>
-								</tr></thead>
-								<% totalWorth = 0.0 %>
-								<tbody> 
-								<%for i in 0..@listStocks.values.length-1%>
+	</div>
+	<div class="col-md-7 profile">
+		<div class="well">
+			<h2 class="username">List of Stocks</h2>
+		</br>
+		Total Stocks: <%= @numStocks %>
+		<hr>
+		<%if @numStocks == 0 %>
+		No Stocks Exist
+		<%else%>
+		<%= yield :charts_js %> <%# Rails %>
+		<% Chartkick.options = {
+	  		library: {backgroundColor: "#f5f5f5",padding: "0"},		} %>
+		<%= javascript_include_tag "path/to/highcharts.js", "chartkick" %>
+		<% hey = Hash[*@listStocks.to_a.flatten.map(&:upcase)] %>
+		<%= pie_chart(hey)%>
+		<table class="table stock">
+			<thead class="stock"> <tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Quantity</th>
+				<th>Total Worth</th>
+			</tr></thead>
+			<% counter=1 %>
+			<% totalWorth = 0.0 %>
+			<tbody> 
+				<%for i in 0..@listStocks.values.length-1%>
 
-								<% if @listStocks.values[i].to_i != 0%>
-									<% difference = @stockPrices[i].to_f-@oldStockPrices[i].to_f %>
+				<% if @listStocks.values[i].to_i != 0%>
+				<tr>
+					<td><%=counter%></td>
+					<td><%= @listStocks.keys[i].upcase %></td>
+					<td><%= @listStocks.values[i] %></td>
+					<td>$<%= sprintf('%.2f',@stockPrices[i].to_f * @listStocks.values[i].to_f) %></td>
+					<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
+				</tr>
+				<% counter+=1%>
+				<% end %>
+				<% end %>
+			</tbody>
+		</table>
+		<h2 class="username">Total Stock Value:</h2>
+		<h1 class="stockWorth">$<%= sprintf('%.2f',totalWorth) %></h1>
+		<% end %>
+	</div>
 
-									<% if difference < 0 %>
-
-									<tr class="danger">
-										<td><%= @listStocks.keys[i].upcase %></td>
-										<td>$<%= sprintf('%.2f',@stockPrices[i].to_f) %></td>
-										<td>$<%= sprintf('%.2f',@oldStockPrices[i].to_f) %></td>
-										<td>$<%= sprintf('%.2f',difference) %></td>
-										<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
-									</tr>
-
-									<% elsif difference > 0 %>
-									<tr class="success">
-										<td><%= @listStocks.keys[i].upcase %></td>
-										<td>$<%= sprintf('%.2f',@stockPrices[i].to_f) %></td>
-										<td>$<%= sprintf('%.2f',@oldStockPrices[i].to_f) %></td>
-										<td>$<%= sprintf('%.2f',difference) %></td>
-										<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
-									</tr>
-									<%else%>
-									<tr class="info">
-										<td><%= @listStocks.keys[i].upcase %></td>
-										<td>$<%= sprintf('%.2f',@stockPrices[i].to_f) %></td>
-										<td>$<%= sprintf('%.2f',@oldStockPrices[i].to_f) %></td>
-										<td>$<%= sprintf('%.2f',difference) %></td>
-										<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
-									</tr>
-									<%end%>
-								<% end %>
-								<% end %>
-								</tbody>
-								</table>
-							<% end %>
-						</div>
-
-
-
-					</div>
-					<div class="col-md-7 profile">
-						<div class="well">
-							<h2 class="username">List of Stocks</h2>
-							</br>
-							Total Stocks: <%= @numStocks %>
-							<hr>
-							<%if @numStocks == 0 %>
-								No Stocks Exist
-							<%else%>
-							<table class="table stock">
-								<thead class="stock"> <tr>
-									<th>#</th>
-									<th>Name</th>
-									<th>Quantity</th>
-									<th>Total Worth</th>
-								</tr></thead>
-								<% counter=1 %>
-								<% totalWorth = 0.0 %>
-								<tbody> 
-								<%for i in 0..@listStocks.values.length-1%>
-
-								<% if @listStocks.values[i].to_i != 0%>
-									<tr>
-										<td><%=counter%></td>
-										<td><%= @listStocks.keys[i].upcase %></td>
-										<td><%= @listStocks.values[i] %></td>
-										<td>$<%= sprintf('%.2f',@stockPrices[i].to_f * @listStocks.values[i].to_f) %></td>
-										<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
-									</tr>
-								<% counter+=1%>
-								<% end %>
-								<% end %>
-								</tbody>
-								</table>
-								<h2 class="username">Total Stock Value:</h2>
-								<h1 class="stockWorth">$<%= sprintf('%.2f',totalWorth) %></h1>
-							<% end %>
-						</div>
-						<div class="well">
-							<h2 class="username">Stock News</h2> </br>
-							Updated in every 30 minutes
-						<div class="panel panel-default">
-						<div class="panel-body">
-						<ul class="demo">
-							<% for i in 0...@stockNews.length %>
-							<% if i != @stockNews.length-1 %>
-							<li class="news-item" style="border-bottom: 1px dotted #555;">
-							<% else %>
-							<li class="news-item">
+	<div class="well">
+		<h2 class="username">Stock News</h2> </br>
+		Updated in every 30 minutes
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ul class="demo">
+					<% for i in 0...@stockNews.length %>
+					<% if i != @stockNews.length-1 %>
+					<li class="news-item" style="border-bottom: 1px dotted #555;">
+						<% else %>
+						<li class="news-item">
 							<%end%>
-								<table class="news-table">
-									<tr>
-										<td>
-												<%= image_tag(@stockNews[0][i], :alt => "news", :class=>"newsPic") %>
-												<h2 class="news"> <%=@stockNews[1][i] %></h2>
-										</td>
-									</tr>
-								</table>
-							</li>
-							<% end %>
-						</ul>
-						</div>
-						</div>
-						</div>
-					</div>
+							<table class="news-table">
+								<tr>
+									<td>
+										<%= image_tag(@stockNews[0][i], :alt => "news", :class=>"newsPic") %>
+										<h2 class="news"> <%=@stockNews[1][i] %></h2>
+									</td>
+								</tr>
+							</table>
+						</li>
+						<% end %>
+					</ul>
 				</div>
 			</div>
 		</div>
+	</div>
+
+</div>
+</div>
+</div>

@@ -80,7 +80,7 @@ class Gamemain < ActiveRecord::Base
 		conn = @@connection #connects to the database
 
 		#Checks the last time the stocks were updated
-		command = "SELECT TIME FROM STOCKS WHERE NAME='RSI'"
+		command = "SELECT TIME FROM STOCKS WHERE NAME='RSI';"
 		action = conn.exec(command)
 		difference = TimeDifference.between(Time.parse(action.values[0][0]), Time.now).in_minutes
 
