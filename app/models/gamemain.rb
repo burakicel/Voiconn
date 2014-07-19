@@ -111,11 +111,10 @@ class Gamemain < ActiveRecord::Base
 				#Updates the stock prices on the database
 				command = "UPDATE STOCKS SET PRICE='"+priceOutput.to_s+"' WHERE NAME='"+listStocks[i].to_s+"';"
 				action = conn.exec(command)
-
-				#Updates the time on the database
-				command = "UPDATE STOCKS SET TIME='"+Time.now.to_s+"' WHERE NAME='RSI'"
-				action = conn.exec(command)
 			end
+			#Updates the time on the database
+			command = "UPDATE STOCKS SET TIME='"+Time.now.to_s+"' WHERE NAME='RSI'"
+			action = conn.exec(command)
 			return ""
 		end
 	end

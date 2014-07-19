@@ -8,6 +8,7 @@ RubyRailsSample::Application.routes.draw do
   resource :login
   resource :activate
   resource :gamemain
+  resource :inventory
   match '/welcome',      to: 'welcome#new',           via: 'get'
   match '/welcome',      to: 'welcome#deliver',        via: 'post'
   match '/register',      to: 'register#new',           via: 'get'
@@ -23,8 +24,8 @@ RubyRailsSample::Application.routes.draw do
   match '/user',      to: 'user#deliver',        via: 'post'
   match '/activate',      to: 'activate#verify',           via: 'get'
   match '/activate',      to: 'activate#verify',        via: 'post'
-
   match '/login',      to: 'login#create',        via: 'get'
+  match '/inventory', to: 'inventory#create', via: 'post'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

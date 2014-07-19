@@ -325,6 +325,16 @@ h1.stockWorth {
     background-position: center;
 }
 
+.inventory {
+    background-color: #000;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 150px;
+    background-image: url(/assets/inventory.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .dash {
     padding-right: 0px;
     padding-left: 0px;

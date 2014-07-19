@@ -1,0 +1,76 @@
+<div class="row regis">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<%= image_tag("int_logo.png", :alt => "Logo") %>
+	</div>
+</div>
+</div>
+
+
+<div id="wrapper">
+	<div id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<div class="sidebar-brand">
+				Navigation
+			</div>
+			<li class="links">
+				<%= link_to 'Dashboard', gamemain_path %>
+			</li>
+			<li class="links">
+				<a href="/#">Inventory</a>
+			</li>
+			<li class="links">
+				<a href="#">Buy/Sell Stocks</a>
+			</li>
+			<li class="links">
+				<a href="#">Messages</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="page-content-wrapper">
+		<div class="page-content inset">
+			<div class="col-md-12 dash">
+				<div class="well inventory">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 profile">
+					<%= @update %>
+					<div class="well">
+						<h2 class="username"><%= @username %>'s Stock Value Activity</h2>
+						</br>
+						(Activity is based on the last 4 hours)
+					</br>
+					<h1 class="balance">$<%= @graphData[0][1] %></h1>
+					<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+					<%= line_chart @graphData, min: nil, max: nil %>
+					<table class="table stock">
+					<thead class="stock"> <tr>
+						<th>#</th>
+						<th>Name</th>
+						<th>Quantity</th>
+						<th>Total Worth</th>
+					</tr></thead>
+					<% counter=1 %>
+					<% totalWorth = 0.0 %>
+					<tbody> 
+						<%for i in 0..@listStocks.values.length-1%>
+
+						<% if @listStocks.values[i].to_i != 0%>
+						<tr>
+							<td><%=counter%></td>
+							<td><%= @listStocks.keys[i].upcase %></td>
+							<td><%= @listStocks.values[i] %></td>
+							<td>$<%= sprintf('%.2f',@stockPrices[i].to_f * @listStocks.values[i].to_f) %></td>
+							<% totalWorth +=@stockPrices[i].to_f * @listStocks.values[i].to_f %>
+						</tr>
+						<% counter+=1%>
+						<% end %>
+						<% end %>
+					</tbody>
+				</table>
+				</div>
+
+		</div>
+	</div>
+</div>

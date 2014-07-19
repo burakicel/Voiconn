@@ -18,6 +18,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'chartkick'
 
+gem 'groupdate'
+
 gem 'time_difference', '~> 0.3.2'
 
 # Use CoffeeScript for .js.coffee assets and views
