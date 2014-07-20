@@ -76,7 +76,7 @@ img {
 	font-weight: 100;
 }
 
-.btn:hover, .btn {
+.btn {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -96,6 +96,35 @@ img {
     position: relative;
     text-decoration: none;
     text-shadow: none;
+}
+
+.btn:hover {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #78b127;
+    border-color: -moz-use-text-color -moz-use-text-color #78AA30;
+    border-image: none;
+    border-radius: 3px;
+    border-style: none none solid;
+    border-width: medium medium 3px;
+    box-shadow: none;
+    color: #FFFFFF;
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 11px 20px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.invt,.invt:hover {
+    font-size: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
 }
 
 .col-sm-10 {
@@ -383,4 +412,10 @@ li.news-item {
     text-align: center;
     height: 60px;
     color: #FFF;
+}
+.inventory-board {
+    margin-bottom: 80px;
+}
+hr {
+    margin-bottom: 0px;
 }

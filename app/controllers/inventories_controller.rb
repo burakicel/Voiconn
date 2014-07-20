@@ -2,6 +2,8 @@ class InventoriesController < ApplicationController
 
     def show
         checker = false
+        
+        urlParams = params        
         params = session[:tmp_params] #Parameters passed from the login page
 
         if params == nil
@@ -18,6 +20,8 @@ class InventoriesController < ApplicationController
             #For User Profile
             @username = (params['login']['username']).upcase
 
+            @update = Gamemain.update()
+
             #For Stock Pricing, The stock price is only calculated when it is requested
             @Stocks = Inventory.Stocks(params)
             @listStocks = @Stocks[0]
@@ -25,7 +29,11 @@ class InventoriesController < ApplicationController
 
             @allPrice = Inventory.allPrice()
             #Graph Data
-            @graphData = Inventory.graphData(@listStocks,@allPrice)
+            if urlParams[:graphSetting].to_i == 6 || urlParams[:graphSetting].to_i == 12 || urlParams[:graphSetting].to_i == 36
+                @graphData = Inventory.graphData(@listStocks,@allPrice,urlParams[:graphSetting].to_i)
+            else
+                @graphData = Inventory.graphData(@listStocks,@allPrice,6)
+            end
 
             session[:tmp_params] = nil #clear the parameters
        

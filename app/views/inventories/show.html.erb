@@ -36,14 +36,20 @@
 			<div class="row">
 				<div class="col-md-12 profile">
 					<%= @update %>
-					<div class="well">
+					<div class="well inventory-board">
 						<h2 class="username"><%= @username %>'s Stock Value Activity</h2>
-						</br>
-						(Activity is based on the last 4 hours)
+					</br>
+					<%= @id %>
+					Current Total Stock Worth:
 					</br>
 					<h1 class="balance">$<%= @graphData[0][1] %></h1>
 					<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 					<%= line_chart @graphData, min: nil, max: nil %>
+					<div class="btn-group">
+ 						<a href="?graphSetting=6"><button type="button" class="btn btn-default invt">30 min</button></a>
+  						<a href="?graphSetting=12"><button type="button" class="btn btn-default invt">1 hour</button></a>
+  						<a href="?graphSetting=36"><button type="button" class="btn btn-default invt">3 hours</button></a>
+					</div>
 					<table class="table stock">
 					<thead class="stock"> <tr>
 						<th>#</th>

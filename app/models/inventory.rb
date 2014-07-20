@@ -3,11 +3,11 @@ class Inventory < ActiveRecord::Base
 	@listStocks = ["rsi","eoc","gold","oil"]
 
 	## INSERTION SORT METHOD##
-	def  self.graphData(listStocks,allPrice)
+	def  self.graphData(listStocks,allPrice,size)
 		graphData = []
 		allPrice = allPrice.map{|e| e.gsub(/ /,'')}
 
-		for q in 0..6
+		for q in 0..size
 			totalWorth = 0
 		for i in 0...@listStocks.length
 			numStocks = listStocks[@listStocks[i]].to_i
