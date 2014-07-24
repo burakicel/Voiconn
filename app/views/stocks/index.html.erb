@@ -1,0 +1,26 @@
+<h1>Listing Stocks</h1>
+<table>
+<% @stocks.each do |stock| %>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td>
+<%= image_tag(stock.image_url, class: 'list_image') %>
+</td>
+<td class="list_description">
+<dl>
+<dt><%= stock.title %></dt>
+<dd><%= truncate(strip_tags(stock.description),length: 80) %></dd>
+<dd><%= truncate(strip_tags(stock.price),length: 255) %></dd>
+</dl>
+</td>
+<td class="list_actions">
+<%= link_to 'Show', stock %><br/>
+<%= link_to 'Edit', edit_stock_path(stock) %><br/>
+<%= link_to 'Destroy', stock,
+confirm: 'Are you sure?',
+method: :delete %>
+</td>
+</tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'New stock', new_stock_path %>
