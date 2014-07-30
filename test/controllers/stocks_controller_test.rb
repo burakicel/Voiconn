@@ -3,6 +3,12 @@ require 'test_helper'
 class StocksControllerTest < ActionController::TestCase
   setup do
     @stock = stocks(:one)
+    @update = {
+      title: 'Lorem Ipsum',
+      description: 'Wibbles are fun!',
+      image_url: 'lorem.jpg',
+      price: '$30.12'
+    }
   end
 
   test "should get index" do
@@ -18,7 +24,7 @@ class StocksControllerTest < ActionController::TestCase
 
   test "should create stock" do
     assert_difference('Stock.count') do
-      post :create, stock: { description: @stock.description, image_url: @stock.image_url, price: @stock.price, title: @stock.title }
+      post :create, stock: @update
     end
 
     assert_redirected_to stock_path(assigns(:stock))
@@ -35,7 +41,7 @@ class StocksControllerTest < ActionController::TestCase
   end
 
   test "should update stock" do
-    patch :update, id: @stock, stock: { description: @stock.description, image_url: @stock.image_url, price: @stock.price, title: @stock.title }
+    patch :update, id: @stock, stock: @update
     assert_redirected_to stock_path(assigns(:stock))
   end
 

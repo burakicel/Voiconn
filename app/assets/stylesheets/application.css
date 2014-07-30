@@ -13,3 +13,436 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(http://fonts.googleapis.com/css?family=Lato:500,100);
+
+body {
+    background-color: #f2f2f2;
+    height: 100%;
+}
+.name {
+	float: left;
+    min-height: 1px;
+    padding: 0 15px;
+    position: relative;
+    direction: ltr;
+    font-size: 14px;
+    margin: 0;
+}
+.top-bar .name h1 {
+	font-size: 25px;
+}
+
+#navbar-wrapper .navbar-brand img {
+    height: 128px;
+    text-align: center;
+}
+
+img {
+    vertical-align: middle;
+}
+
+#banner-top {
+    height: 545px;
+    max-height: none;
+    padding: 0;
+    text-align: center;
+    background-color: #000000 !important;
+}
+
+#navbar-wrapper {
+    height: 150px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+.container {
+    overflow: hidden;
+}
+
+#navbar-wrapper .navbar-brand {
+    display: block;
+    float: none;
+    margin-top: 140px;
+    position: static;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.jumbotron{
+	font-size: 21px;
+    font-weight: 200;
+    line-height: 2.14286;
+    margin-bottom: 30px;
+}
+
+#navbar-wrapper .navbar-header {
+    position: relative;
+    width: 100%;
+}
+
+.beta {
+	color: #FFFFFF;
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+}
+
+.btn {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #88C333;
+    border-color: -moz-use-text-color -moz-use-text-color #78AA30;
+    border-image: none;
+    border-radius: 3px;
+    border-style: none none solid;
+    border-width: medium medium 3px;
+    box-shadow: none;
+    color: #FFFFFF;
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 11px 20px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.btn:hover {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #78b127;
+    border-color: -moz-use-text-color -moz-use-text-color #78AA30;
+    border-image: none;
+    border-radius: 3px;
+    border-style: none none solid;
+    border-width: medium medium 3px;
+    box-shadow: none;
+    color: #FFFFFF;
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 11px 20px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.invt,.invt:hover {
+    font-size: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+}
+
+.col-sm-10 {
+	text-align: center;
+}
+.form-control {
+	text-align: center;
+	width: 300px;
+	margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 260px;
+}
+.register-control {
+    text-align: left;
+    padding-left: 10px;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 0px;
+    margin-top: 10px;
+}
+#wrap{
+	text-align: center;
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+#wrapper {
+    padding-left: 25%;
+    transition: all 0.4s ease 0s;
+}
+
+#contenu{
+    margin-top: 80px;
+}
+
+#contenu2{
+    margin-top: 0px;
+}
+
+.hero-unit {
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    color: inherit;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    margin-bottom: 30px;
+    padding: 10px 50px 20px 50px;
+    text-align: center;
+}
+
+form.new_user {
+    text-align: center;
+    display: inline-block;
+}
+
+div.field {
+    text-align: center;
+    display: inline-block;
+}
+
+.regis {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.registerbtn {
+    width: 30%;
+}
+.registersBtn {
+    margin-top: 140px;
+    width: 20%;
+}
+
+.registerPgBtn {
+    margin-top: 20px;
+}
+
+.loginBtn {
+    margin-top: 10px;
+    width: 20%;
+    background: none repeat scroll 0 0 #C72831;
+    border-color: -moz-use-text-color -moz-use-text-color #c1212a;
+}
+
+.loginBtn:hover {
+    background: none repeat scroll 0 0 #c1212a;
+    border-color: -moz-use-text-color -moz-use-text-color #c1212a;
+}
+
+.registersBtn:hover {
+    background: none repeat scroll 0 0 #78AA30;
+}
+
+
+h2.bg-danger {
+    background-color: #D9534F;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 60px;
+    color: #FFFFFF;
+}
+h2.bg-success {
+    background-color: #5CB85C;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 60px;
+    color: #FFFFFF;
+}
+
+.navbar-inverse {
+    background-color: #2f3c45;
+    border: none;
+}
+
+#sidebar-wrapper {
+    background: none repeat scroll 0 0 #000000;
+    height: 100%;
+    left: 250px;
+    margin-left: -250px;
+    overflow-y: auto;
+    position: fixed;
+    transition: all 0.4s ease 0s;
+    width: 25%;
+    z-index: 1000;
+}
+
+.sidebar-nav {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar-nav > .sidebar-brand {
+    margin-top: 40px;
+    font-size: 18px;
+    height: 65px;
+    line-height: 60px;
+}
+
+.sidebar-nav li a {
+    color: #999999;
+    display: block;
+    text-decoration: none;
+}
+
+.sidebar-nav .links a:hover {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.sidebar-nav li {
+    line-height: 40px;
+}
+
+.sidebar-nav > .sidebar-brand {
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-brand {
+    color: #FFF;
+}
+
+.profile {
+    margin-top: 0px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+.inset {
+    padding: 20px;
+}
+
+h2.username{
+    margin-top: 0px;
+    padding-top: 0px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    display: inline;
+}
+h2.adtitle{
+    margin-top: -10px;
+    padding-top: 0px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    display: inline;
+}
+.well {
+    text-align: center;
+}
+h1.balance {
+    color: #84bf85;
+    font-size: 50px;
+    margin-top: 10px;
+}
+
+.profilePic {
+    width: 100px;
+}
+
+.table.stock {
+    text-align: right;
+}
+th{
+    text-align: right;
+}
+
+h1.stockWorth {
+    color: #84bf85;
+    font-size: 30px;
+    margin-top: 10px;
+}
+.dashboard {
+    background-color: #000;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 150px;
+    background-image: url(/assets/dashboard.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.inventory {
+    background-color: #000;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 150px;
+    background-image: url(/assets/inventory.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dash {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-top: 40px;
+}
+
+h2.news{
+    margin-top: 30px;
+    padding-top: 0px;
+    font-weight: 100;
+    margin-left: 10px;
+    font-size: 200%;
+}
+
+.glyphicon {
+margin-right: 4px !important; /*override*/
+}
+.pagination .glyphicon {
+margin-right: 0px !important; /*override*/
+}
+.pagination a {
+color: #555;
+}
+
+.newsPic {
+    float: left;
+}
+
+li.news-item {
+    text-align: center;
+}
+
+.news-table {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.adpic {
+    margin-top: 7px;
+}
+.ad {
+    margin-bottom: 55px;
+}
+.footer{
+    background-color: #2f3c45;
+    text-align: center;
+    height: 60px;
+    color: #FFF;
+}
+.inventory-board {
+    margin-bottom: 80px;
+}
+hr {
+    margin-bottom: 0px;
+}

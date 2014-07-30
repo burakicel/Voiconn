@@ -93,3 +93,192 @@ Processing by StocksController#update as HTML
 Redirected to http://test.host/stocks/980190962
 Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
   [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "stocks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "stocks" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2014-07-24 20:39:57', '2014-07-24 20:39:57', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "stocks" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2014-07-24 20:39:57', '2014-07-24 20:39:57', 298486374)[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+StocksControllerTest: test_should_create_stock
+----------------------------------------------
+  [1m[35mStock Load (0.1ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "stocks"[0m
+Processing by StocksController#create as HTML
+  Parameters: {"stock"=>{"description"=>"MyText", "image_url"=>"MyString", "price"=>"MyString", "title"=>"MyString"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStock Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "stocks"  WHERE "stocks"."title" = 'MyString' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered stocks/_form.html.erb (8.8ms)
+  Rendered stocks/new.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 65ms (Views: 51.6ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "stocks"[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+StocksControllerTest: test_should_destroy_stock
+-----------------------------------------------
+  [1m[35mStock Load (0.1ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "stocks"[0m
+Processing by StocksController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStock Load (0.0ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "stocks" WHERE "stocks"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/stocks
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "stocks"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+StocksControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[36mStock Load (0.1ms)[0m  [1mSELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StocksController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStock Load (0.0ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered stocks/_form.html.erb (4.2ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+StocksControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[36mStock Load (0.1ms)[0m  [1mSELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StocksController#index as HTML
+  [1m[35mStock Load (0.1ms)[0m  SELECT "stocks".* FROM "stocks"
+Completed 200 OK in 41ms (Views: 41.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+StocksControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[36mStock Load (0.1ms)[0m  [1mSELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StocksController#new as HTML
+  Rendered stocks/_form.html.erb (2.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+StocksControllerTest: test_should_show_stock
+--------------------------------------------
+  [1m[35mStock Load (0.0ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStock Load (0.0ms)[0m  [1mSELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+StocksControllerTest: test_should_update_stock
+----------------------------------------------
+  [1m[35mStock Load (0.0ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StocksController#update as HTML
+  Parameters: {"stock"=>{"description"=>"MyText", "image_url"=>"MyString", "price"=>"MyString", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mStock Load (0.0ms)[0m  [1mSELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStock Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "stocks"  WHERE ("stocks"."title" = 'MyString' AND "stocks"."id" != 980190962) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered stocks/_form.html.erb (2.7ms)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "stocks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "stocks" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2014-07-24 20:50:41', '2014-07-24 20:50:41', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "stocks" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2014-07-24 20:50:41', '2014-07-24 20:50:41', 298486374)[0m
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+StocksControllerTest: test_should_create_stock
+----------------------------------------------
+  [1m[35mStock Load (0.1ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "stocks"[0m
+Processing by StocksController#create as HTML
+  Parameters: {"stock"=>{"title"=>"Lorem Ipsum", "description"=>"Wibbles are fun!", "image_url"=>"lorem.jpg", "price"=>"$30.12"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStock Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "stocks"  WHERE "stocks"."title" = 'Lorem Ipsum' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stocks" ("created_at", "description", "image_url", "price", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2014-07-24 20:50:41.267340"], ["description", "Wibbles are fun!"], ["image_url", "lorem.jpg"], ["price", "$30.12"], ["title", "Lorem Ipsum"], ["updated_at", "2014-07-24 20:50:41.267340"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/stocks/980190963
+Completed 302 Found in 13ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "stocks"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+StocksControllerTest: test_should_destroy_stock
+-----------------------------------------------
+  [1m[36mStock Load (0.1ms)[0m  [1mSELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "stocks"
+Processing by StocksController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStock Load (0.1ms)[0m  [1mSELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "stocks" WHERE "stocks"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/stocks
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "stocks"[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+StocksControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[35mStock Load (0.1ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StocksController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStock Load (0.0ms)[0m  [1mSELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered stocks/_form.html.erb (14.5ms)
+Completed 200 OK in 33ms (Views: 32.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+StocksControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[35mStock Load (0.1ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StocksController#index as HTML
+  [1m[36mStock Load (0.1ms)[0m  [1mSELECT "stocks".* FROM "stocks"[0m
+Completed 200 OK in 11ms (Views: 11.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+StocksControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[35mStock Load (0.1ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StocksController#new as HTML
+  Rendered stocks/_form.html.erb (2.2ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+StocksControllerTest: test_should_show_stock
+--------------------------------------------
+  [1m[36mStock Load (0.0ms)[0m  [1mSELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStock Load (0.1ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+StocksControllerTest: test_should_update_stock
+----------------------------------------------
+  [1m[36mStock Load (0.1ms)[0m  [1mSELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StocksController#update as HTML
+  Parameters: {"stock"=>{"title"=>"Lorem Ipsum", "description"=>"Wibbles are fun!", "image_url"=>"lorem.jpg", "price"=>"$30.12"}, "id"=>"980190962"}
+  [1m[35mStock Load (0.0ms)[0m  SELECT  "stocks".* FROM "stocks"  WHERE "stocks"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mStock Exists (0.1ms)[0m  SELECT  1 AS one FROM "stocks"  WHERE ("stocks"."title" = 'Lorem Ipsum' AND "stocks"."id" != 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "stocks" SET "description" = ?, "image_url" = ?, "price" = ?, "title" = ?, "updated_at" = ? WHERE "stocks"."id" = 980190962[0m  [["description", "Wibbles are fun!"], ["image_url", "lorem.jpg"], ["price", "$30.12"], ["title", "Lorem Ipsum"], ["updated_at", "2014-07-24 20:50:41.339630"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/stocks/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
