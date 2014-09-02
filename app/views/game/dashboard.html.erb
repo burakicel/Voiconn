@@ -1,0 +1,153 @@
+<script src="//www.google.com/jsapi"></script>
+
+<div class="row regis">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<%= image_tag("int_logo.png", :alt => "Logo") %>
+	</div>
+</div>
+</div>
+
+<div id="wrapper">
+	<div id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<div class="sidebar-brand">
+				Navigation
+			</div>
+			<li class="links">
+				<a href="/game/dashboard">Dashboard</a>
+			</li>
+			<li class="links">
+				<a href="/game/inventory">Inventory</a>
+			</li>
+			<li class="links">
+				<a href="/game/buy">Buy Stocks</a>
+			</li>
+			<li class="links">
+				<a href="/game/sell">Sell Stocks</a>
+			</li>
+			<li class="links">
+				<a href="/game/highscore">Highscores</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="page-content-wrapper">
+		<div class="page-content inset">
+
+			<div class="col-md-12 dash">
+				<div class="well dashboard">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-5 profile">
+					<div class="well">
+						<%= image_tag("profile.png", :alt => "Profile", :class=>"profilePic") %> </br>
+						<h2 class="username"><%= @user.name.capitalize %></h2>
+					</br> Account Balance:
+					<h1 class="balance"><%= number_to_currency(@user.balance) %></h1>
+				</div>
+
+
+				<div class="well">
+					<h2 class="username">Your Stock Activity</h2></br>
+					<% if @stockList.length == 0 %>
+					No Stocks Exist
+					<% else %>
+					<table class="table stock">
+						<thead class="stock"> <tr>
+							<th>Name</th>
+							<th>Bid Price</th>
+							<th>Change</th>
+						</tr></thead>
+						<tbody>
+							<% for i in (0..@stockList.length-1).step(3) %>
+								<% if @stockList[i+2] < 0 %>
+									<% status = "danger" %>
+								<%elsif @stockList[i+2] == 0 %>
+									<% status = "info" %>
+								<%else%>
+									<% status = "success" %>
+								<% end%>
+								<tr class=<%=status%>>
+								<td><%= @stockList[i] %></td>
+								<td><%= number_to_currency(@stockList[i+1]) %></td>
+								<td><%= number_to_currency(@stockList[i+2]) %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<% end %>
+					</div>
+
+				<div class="well ad">
+			<h2 class="adtitle">Advertisements</h2></br>
+			<a href="http://www.mb103.com/lnk.asp?o=6801&c=75729&a=114423&s1=voiconn">
+				<IMG SRC="http://www.mb103.com/getimage.asp?a=114423&m=2952&o=6801&i=75729.dat" width=300 height=250 border=0 class="adpic">
+				</a>
+			</div>
+
+				</div>
+
+				<div class="col-md-7 profile">
+			<div class="well">
+				<h2 class="username">List of Stocks</h2> </br>
+					Total Stocks: <%= @numStocks %> </br>
+					<%if @numStocks == 0 %>
+						No Stocks Exist
+					<%else%>
+						<% Chartkick.options = {
+				library: {backgroundColor: "#f5f5f5",padding: "0"},		} %>
+						<%= javascript_include_tag "path/to/highcharts.js", "chartkick" %>
+						<% hey = Hash[*@stockListHash.to_a.flatten.map(&:upcase)] %>
+						<%= pie_chart(hey)%>
+						<table class="table stock">
+					<thead class="stock"> <tr>
+						<th>#</th>
+						<th>Name</th>
+						<th>Quantity</th>
+						<th>Total Worth</th>
+					</tr></thead>
+					<tbody>
+						<% counter=1 %>
+						<% for i in (0...@stockList.length).step(3) %>
+						<tr>
+							<td><%= counter %> </td>
+							<td><%= @personalStock[i].upcase %></td>
+							<td><%= @personalStock[i+1] %></td>
+							<td><%= number_to_currency(@sumStocks[counter-1])%></td>
+
+							<% counter += 1 %>
+						</tr>
+						<%end %>
+					</tbody>
+
+					</table>
+					<h2 class="username">Total Stock Value:</h2>
+					<h1 class="stockWorth"><%= number_to_currency(@sumStocks[-1]) %></h1>
+					<%end%>
+			</br>
+		</div>
+		<div class="well">
+				<h2 class="username">Stock News</h2> </br>
+				Top Stories
+				<%= @stockss %>
+				<% for i in (0...@news.length).step(2) %>
+				<div class="panel panel-default">
+				<div class="panel-body">
+				<ul class="demo">
+				<%= @news[i+1].to_s.html_safe %>
+				<h2 class="news"><%= @news[i].to_s%></h2>
+				</ul>
+				</div>
+				</div>
+				<% end %>
+		</div>
+	</div>
+
+
+			</div>
+
+		</div>
+	</div>
+</div>

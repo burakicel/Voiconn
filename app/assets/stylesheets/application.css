@@ -10,6 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require select2
+ *= require select2-bootstrap
  *= require_tree .
  *= require_self
  */
@@ -381,6 +383,17 @@ h1.stockWorth {
     background-position: center;
 }
 
+
+.buy {
+    background-color: #000;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 150px;
+    background-image: url(/assets/buy.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .inventory {
     background-color: #000;
     padding-top: 0px;
@@ -398,11 +411,13 @@ h1.stockWorth {
 }
 
 h2.news{
-    margin-top: 30px;
     padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     font-weight: 100;
     margin-left: 10px;
-    font-size: 200%;
+    font-size: 150%;
+    font-family: 'Lato', sans-serif;
 }
 
 .glyphicon {
@@ -445,4 +460,29 @@ li.news-item {
 }
 hr {
     margin-bottom: 0px;
+}
+
+ul.demo {
+    margin-left: -40px;
+}
+
+.thumbnail {
+    border: 0px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.thumbnail.default {
+    background-image: url("http://www.undervaluedequity.com/images/Stock-Market-News_7093558683_ae41e5da59_h_780x390px_85pct.jpg");
+    background-repeat: no-repeat;
+    height: 50px;
+    background-size: 70px 50px;
+    background-position: center; 
+}
+.thumbnail.self {
+    background-image: url("http://www.undervaluedequity.com/images/Stock-Market-News_7093558683_ae41e5da59_h_780x390px_85pct.jpg");
+    background-repeat: no-repeat;
+    height: 50px;
+    background-size: 70px 50px;
+    background-position: center; 
 }

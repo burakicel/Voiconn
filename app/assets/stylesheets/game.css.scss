@@ -1,0 +1,109 @@
+// Place all the styles related to the game controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.select2-container {
+    width: 200px;
+}
+
+div.select2-container {
+	margin-top: 10px;
+}
+
+.btn.search {
+	margin-top: 15px;
+	font-size: 15px;
+}
+
+.btn.search:hover {
+	margin-top: 15px;
+	font-size: 15px;
+}
+
+h2.username{
+	margin-top: 30px;
+}
+
+p.up {
+	color: green;
+}
+
+p.down {
+	color: red;
+}
+
+.sell {
+    background-color: #000;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 150px;
+    background-image: url(/assets/sell.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.highscore {
+    background-color: #000;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 150px;
+    background-image: url(/assets/highscores.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.CSSTableGenerator {
+    border: 1px solid #000000;
+    border-radius: 0;
+    box-shadow: 10px 10px 5px #888888;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.CSSTableGenerator table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.CSSTableGenerator tr:nth-child(2n+1) {
+    background-color: #e5e5e5;
+}
+
+div.TablePreviewBox {
+	text-align: center;
+    display: inline;
+
+}
+
+div#PreviewTableClassDiv {
+	margin-top: 20px;
+}
+
+.CSSTableGenerator table tr:first-child td:first-child {
+    border-top-left-radius: 0;
+}
+
+.CSSTableGenerator tr:first-child td:first-child {
+    border-width: 0 0 1px;
+}
+
+.CSSTableGenerator tr:first-child td {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: -moz-linear-gradient(center top , #4c4c4c 5%, #000000 100%) repeat scroll 0 0 #4c4c4c;
+    border-color: #000000;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 0 1px 1px;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}

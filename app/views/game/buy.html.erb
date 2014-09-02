@@ -1,0 +1,93 @@
+<div class="row regis">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<%= image_tag("int_logo.png", :alt => "Logo") %>
+	</div>
+</div>
+</div>
+<div id="wrapper">
+	<div id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<div class="sidebar-brand">
+				Navigation
+			</div>
+			<li class="links">
+				<a href="/game/dashboard">Dashboard</a>
+			</li>
+			<li class="links">
+				<a href="/game/inventory">Inventory</a>
+			</li>
+			<li class="links">
+				<a href="/game/buy">Buy Stocks</a>
+			</li>
+			<li class="links">
+				<a href="/game/sell">Sell Stocks</a>
+			</li>
+			<li class="links">
+				<a href="/game/highscore">Highscores</a>
+			</li>
+		</ul>
+	</div>
+
+
+	<div id="page-content-wrapper">
+		<div class="page-content inset">
+
+			<div class="col-md-12 dash">
+				<div class="well buy">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 profile">
+					<div class="well">
+						<%= @info %> </br>
+						<h2 class="username">Select Stock to Buy</h2> </br>
+
+					<%=form_for :game, url: url_for( :controller => :game, :action => :buy, :method=>:post ) do |f| %>
+						<%= f.select(:stock, @stocks, {}, { :id => 'e1' }) %>
+						<div class="actions">
+							<%= f.submit "Search", :class=>"registerPgBtn btn btn-large registerbtn search"%>
+						</div>
+					<% end %>
+
+					<% if @chosenStock["game"] != nil %>
+					<script type="text/javascript">
+    $(function() {  //  In jQuery 1.6+ this is same as $(document).ready(function(){})
+        $('#quantity, #item_price')  //  jQuery CSS selector grabs elements with the ID's "quantity" & "item_price"
+            .on('change', function(e) {  //  jQuery 1.6+ replcement for .live (dynamically asigns event, see jQuery API)
+            //  in this case, our event is "change" which works on inputs and selects to let us know when a value is changed
+                //  below i use inline if statements to assure the values i get are "Real"
+                var quan = $("#quantity").val() != "" ? parseFloat($("#quantity").val()) : 1,  //  Get quantity value
+                    pric = $("#item_price").val() != "" ? parseFloat($("#item_price").val()) : 0;  //  Get price value
+                $('#total_price').val(<%=@stock.open %>*quan); // show total
+            });
+    });
+</script>
+					<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+					<%= line_chart @stockData, min: nil, max: nil %>
+					<h2 class="username title"> <%= @stock.name %> </h2> </br>
+					(<%= @chosenStock["game"]["stock"] %>) </br>
+					<p><b> Open Price:</b> <%=@stock.open %> </p>
+					<p><b> Day High:</b> <%=@stock.days_high %> </p>
+					<p><b> Day Low:</b> <%=@stock.days_low %> </p>
+					<p><b> Market Capitalization:</b> <%=@stock.market_capitalization %> </p>
+					<p><b> Last Trade :</b><%=@stock.last_trade_price_only%></p>
+					<p><b> Last Trade Date:</b><%=@stock.last_trade_date%></p>
+					<p class=<%= @change[0] %>><b> Change from 50 Days:</b><%=@stock.percent_change_from_fiftyday_moving_average%></p>
+					<p class=<%= @change[1] %>><b> Change from 200 Days:</b><%=@stock.percent_change_from_two_hundredday_moving_average%></p>
+
+					<%=form_for :gameq, url: url_for( :controller => :game, :action => :buy, :method=>:post ) do |f| %>
+					Quantity: <input type="text" style="width: 50px;" name="quantity" id="quantity" class="txt" value="0" /><br><br>
+Total Price: <input type="text" style="width: 50px;" name="total_price" id="total_price" class="txt" value="0" />
+ <input type="hidden" name="stock" value=<%= @chosenStock["game"]["stock"] %>>
+<div class="actions">
+							<%= f.submit "Buy", :class=>"registerPgBtn btn btn-large registerbtn search"%>
+						</div>
+					<%end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>

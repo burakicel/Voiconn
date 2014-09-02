@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  get 'game/dashboard'
+
+  get 'game/buy'
+
+  get 'game/sell'
+
+  get 'game/main'
+
+  get 'game/inventory'
+
+  get 'game/buy/sell'
+
+  get 'game/message'
+
+  get 'game/highscore'
+
+  get 'game/logout'
+
+  get 'login/index'
+
   resources :users
 
   get 'welcome/index'
@@ -12,6 +32,16 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get 'stocks' => 'stock#index'
+  get 'login' => 'login#index'
+
+  match '/login',      to: 'login#new',           via: 'get'
+
+  match '/login/index',      to: 'login#index',        via: 'post'
+
+  match '/game/buy/',      to: 'game#buy',        via: 'post'
+
+  match '/game/sell/',      to: 'game#sell',        via: 'post'
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

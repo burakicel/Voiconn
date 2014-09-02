@@ -1,0 +1,82 @@
+<div class="row regis">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<%= image_tag("int_logo.png", :alt => "Logo") %>
+	</div>
+</div>
+</div>
+<div id="wrapper">
+	<div id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<div class="sidebar-brand">
+				Navigation
+			</div>
+			<li class="links">
+				<a href="/game/dashboard">Dashboard</a>
+			</li>
+			<li class="links">
+				<a href="/game/inventory">Inventory</a>
+			</li>
+			<li class="links">
+				<a href="/game/buy">Buy Stocks</a>
+			</li>
+			<li class="links">
+				<a href="/game/sell">Sell Stocks</a>
+			</li>
+			<li class="links">
+				<a href="/game/highscore">Highscores</a>
+			</li>
+		</ul>
+	</div>
+
+
+	<div id="page-content-wrapper">
+		<div class="page-content inset">
+
+			<div class="col-md-12 dash">
+				<div class="well highscore">
+				</div>
+			</div>
+
+
+
+			<div class="row">
+				<div class="col-md-12 profile">
+					<div class="well">
+						<h2 class="username">Top 10 Traders</h2> </br>
+
+
+						<div class="TablePreviewBox">
+																
+									<div id="PreviewTableClassDiv" class="CSSTableGenerator" >
+										<table >
+											<tr > 
+												<td>
+												 Username
+												</td>
+												<td >
+												 Balance
+												</td>
+											</tr>
+											<% for i in (0...@topUsers.length).step(2) %>
+											<tr>
+												<td >
+												 <%= @topUsers[i+1] %>
+												</td>
+												<td>
+												 <%= number_to_currency(@topUsers[i]) %>
+												</td>
+											</tr>
+											<% end %>
+										</table>
+
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+</div>

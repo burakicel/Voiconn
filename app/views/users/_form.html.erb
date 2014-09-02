@@ -17,14 +17,33 @@
 </div>
 </br>
 <div class="field">
+<%= f.label :email, 'Email Address'%></br>
+<%= f.text_field :email, size: 40,:input_html => { :class => 'form-control', :type => 'email' } %></br>
+</div>
+</br>
+<div class="field">
 <%= f.label :password_digest, 'Password' %></br>
 <%= f.password_field :password_digest, size: 40 %></br>
 </div>
 </br>
 <div class="field">
-<%= f.label :password_confirmation, 'Confirm' %></br>
-<%= f.password_field :password_confirmation, size: 40 %></br>
+<%= f.label :password_digest_confirmation, 'Confirm' %></br>
+<%= f.password_field :password_digest_confirmation, size: 40 %></br>
 </div>
+<%if cookies[:username] == "admin" %>
+<div class="field">
+<%= f.label :stock, 'Stock' %></br>
+<%= f.text_field :stock, size: 40 %></br>
+</div>
+<div class="field">
+<%= f.label :balance, 'Balance' %></br>
+<%= f.text_field :balance, size: 40 %></br>
+</div>
+<div class="field">
+<%= f.label :message, 'Messages' %></br>
+<%= f.text_field :message, size: 80 %></br>
+</div>
+<%end%>
 </br>
 <div class="actions">
   <%= f.submit %>

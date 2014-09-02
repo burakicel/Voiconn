@@ -4,12 +4,20 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.order(:name)
+    if cookies[:username] != "admin"
+      redirect_to action: 'new'
+    else
+      @users = User.order(:name)
+      @validation = true
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    if cookies[:username] != "admin"
+      redirect_to action: 'new'
+    end
   end
 
   # GET /users/new
@@ -19,14 +27,17 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if cookies[:username] != "admin"
+      redirect_to action: 'new'
+    end
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @user.balance = 500
-    @user.stock = "|RSI16" + params.to_s
+    @user.balance = 10000
+    @user.stock = "AAPL|3|0.00"
 
     respond_to do |format|
       if @user.save
@@ -42,6 +53,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    if cookies[:username] != "admin"
+      redirect_to action: 'new'
+    else
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to users_url, notice: 'User '+@user.name+' was successfully updated.' }
@@ -51,6 +65,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
   end
 
   # DELETE /users/1
@@ -71,6 +86,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password_digest, :balance, :stock)
+      params.require(:user).permit(:name, :password_digest, :password_digest_confirmation, :balance, :stock, :message,:email)
     end
 end

@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
+gem "select2-rails"
 
+gem 'nokogiri'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
@@ -18,7 +20,12 @@ gem 'rake-compiler', '~> 0.9.2'
 gem 'rspec', '>= 0'
 gem 'bcrypt', '~> 3.1.7'
 
+gem "stock_quote"
+gem 'yahoo-finance'
 
+gem 'validates_email_format_of'
+
+gem 'chartkick'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

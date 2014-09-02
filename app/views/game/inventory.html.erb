@@ -1,0 +1,87 @@
+<div class="row regis">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<%= image_tag("int_logo.png", :alt => "Logo") %>
+	</div>
+</div>
+</div>
+
+
+<div id="wrapper">
+	<div id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<div class="sidebar-brand">
+				Navigation
+			</div>
+			<li class="links">
+				<a href="/game/dashboard">Dashboard</a>
+			</li>
+			<li class="links">
+				<a href="/game/inventory">Inventory</a>
+			</li>
+			<li class="links">
+				<a href="/game/buy">Buy Stocks</a>
+			</li>
+			<li class="links">
+				<a href="/game/sell">Sell Stocks</a>
+			</li>
+			<li class="links">
+				<a href="/game/highscore">Highscores</a>
+			</li>
+		</ul>
+	</div>
+
+
+	<div id="page-content-wrapper">
+		<div class="page-content inset">
+			<div class="col-md-12 dash">
+				<div class="well inventory">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 profile">
+
+					<div class="well inventory-board">
+						<h2 class="username"><%= @user.name.capitalize %>'s Stock Value Activity</h2>
+					</br>
+					Current Total Stock Worth:
+					</br>
+					<h1 class="balance"><%= number_to_currency(@sumStocks[-1]) %></h1>
+
+					<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+					<%= line_chart @stockHistory, min: nil, max: nil %>
+
+					<div class="btn-group">
+ 						<a href="?graphSetting=7"><button type="button" class="btn btn-default invt">1 week</button></a>
+  						<a href="?graphSetting=14"><button type="button" class="btn btn-default invt">2 weeks</button></a>
+  						<a href="?graphSetting=28"><button type="button" class="btn btn-default invt">4 weeks</button></a>
+					</div>
+
+					<table class="table stock">
+					<thead class="stock"> <tr>
+						<th>#</th>
+						<th>Name</th>
+						<th>Quantity</th>
+						<th>Total Worth</th>
+					</tr></thead>
+					<tbody>
+						<% counter=1 %>
+						<% for i in (0...@stockList.length).step(3) %>
+						<tr>
+							<td><%= counter %> </td>
+							<td><%= @personalStock[i].upcase %></td>
+							<td><%= @personalStock[i+1] %></td>
+							<td><%= number_to_currency(@sumStocks[counter-1])%></td>
+
+							<% counter += 1 %>
+						</tr>
+						<%end %>
+					</tbody>
+
+					</table>
+
+					</div>
+
+
+		</div>
+	</div>
+</div>
