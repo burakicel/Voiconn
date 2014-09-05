@@ -1,10 +1,10 @@
 == Voiconn
 
 Voiconn is a virtual stock market game that is based on real-life data. You can find it live on 
-![alt tag](http://burakicel.com/wp-content/uploads/2014/09/voiconn.jpg)
+http://burakicel.com/wp-content/uploads/2014/09/voiconn.jpg
 
 == Preview of Dashboard
-![alt tag](http://burakicel.com/wp-content/uploads/2014/09/voiconn3.png)
+http://burakicel.com/wp-content/uploads/2014/09/voiconn3.png
 
 == Real Life Data&News
-![alt tag](http://burakicel.com/wp-content/uploads/2014/09/voiconn4.png)
+http://burakicel.com/wp-content/uploads/2014/09/voiconn4.png
