@@ -1,28 +1,11 @@
-== README
+== Voiconn
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Voiconn is a virtual stock market game that is based on real-life data. You can find it live on 
+![alt tag][http://burakicel.com/wp-content/uploads/2014/09/voiconn.jpg]
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+== Preview of Dashboard
+![alt tag](http://burakicel.com/wp-content/uploads/2014/09/voiconn3.jpg)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Real Life Data&News
+![alt tag][http://burakicel.com/wp-content/uploads/2014/09/voiconn4.png]
