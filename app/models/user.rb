@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
 	end
 
 	def self.buyStock(stockQuantity, stockName, username)
-		stock = StockQuote::Stock.quote(stockName, nil, nil, ['Symbol', 'Open'])
+		stock = StockQuote::Stock.quote(stockName, nil, nil, ['Symbol', 'Open','Ask'])
 		cost = stock.open.to_f * stockQuantity.to_i
 
 		user = User.find_by_name(username)
@@ -99,7 +99,7 @@ class User < ActiveRecord::Base
 
 		stockIndex = stockList.index(stockName)
 
-		if quantity > stockList[stockIndex+1]
+		if quantity.to_f > stockList[stockIndex+1].to_f
 			return "You don't have that much quantity"
 		else
 			bid = StockQuote::Stock.quote(stockName, nil, nil, ['Symbol', 'Open','Bid']).bid

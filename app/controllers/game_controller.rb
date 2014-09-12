@@ -41,6 +41,7 @@ class GameController < ApplicationController
   end
 
   def sell
+    require 'yahoo_finance'
     @stocks = User.stockList(cookies[:username],2)
     @chosenStock = params
     if params["game"] != nil

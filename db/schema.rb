@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140901211107) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "stocks", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -29,8 +32,6 @@ ActiveRecord::Schema.define(version: 20140901211107) do
     t.string   "stock"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "messages"
-    t.string   "message"
     t.string   "email"
   end
 
